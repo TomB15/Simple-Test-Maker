@@ -1,0 +1,31 @@
+Cíl
+- online testování,
+- které bude jednoduché rozšiřovat
+- obsahovat vysvětlení odpovědi
+- dostupné pro všechny
+
+
+
+Jak?
+ - načte otázky z txt/md souboru
+ - napojení na GitHub https://devcenter.heroku.com/articles/github-integration
+
+pozn
+- pokud otázku převezmu, tak musí obsahovat
+------------> TDD <-------------------
+
+upgrade
+- možnost výběru obtížnosti (OCA/OCP, počet otázek)
+- umožni ovládat v prohlížeči formou příkazového řádku
+- vyhodnocení na konci
+- možnost upravit otázku po registraci
+- vysvětlení by mělo obsahovat i odkaz, kde získat další znalosti
+- každá otázka musí obsahovat odkud byla vzatá
+- možnost vytvořit si vlastní set z otázek, které jsem odpověděl špatně
+
+TODO
+10.9. 1) nahraj projekt na github, aby jsi ho mohl pravidelně upravovat
+        2) dodělej zobrazení otázky a vyčkání na odpověď
+        3) dodělej zobrazení správných odpovědí a vyhodnocení
+
+
