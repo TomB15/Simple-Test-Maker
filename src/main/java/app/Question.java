@@ -1,18 +1,19 @@
 package main.java.app;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Question {
 
     private String title;
     private List<String> choices;
-    private List<String> correctAnswer;
+    private List<String> correctAnswers;
     private int result;
 
-    public Question(String title, List<String> choices, List<String> correctAnswer){
+    public Question(String title, List<String> choices, List<String> correctAnswers){
         this.title = title;
-        this.choices = choices;
-        this.correctAnswer = correctAnswer;
+        this.choices = new ArrayList<>(choices);
+        this.correctAnswers = new ArrayList<>(correctAnswers);
     }
 
     public String getTitle() {
@@ -23,8 +24,8 @@ public class Question {
         return choices;
     }
 
-    public List<String> getCorrectAnswer() {
-        return correctAnswer;
+    public List<String> getCorrectAnswers() {
+        return correctAnswers;
     }
 
     public int getResult() {

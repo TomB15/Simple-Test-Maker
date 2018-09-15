@@ -7,6 +7,7 @@
 -- answer b
 -- answer c
 
+-----
 ## What is object?
 * 
 -- Object is an runtime instance of class in memory.
