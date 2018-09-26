@@ -3,7 +3,7 @@ package main.java.app;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class Questions {
+public class QuestionsList {
     private LinkedList<Question> questions = new LinkedList<>();
     private LinkedList<Question> randomQuestionsBuffer;
 

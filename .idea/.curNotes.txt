@@ -22,10 +22,11 @@ upgrade
 - vysvětlení by mělo obsahovat i odkaz, kde získat další znalosti
 - každá otázka musí obsahovat odkud byla vzatá
 - možnost vytvořit si vlastní set z otázek, které jsem odpověděl špatně
-
+vim
 TODO
-10.9. 1) nahraj projekt na github, aby jsi ho mohl pravidelně upravovat
-        2) dodělej zobrazení otázky a vyčkání na odpověď
+14.9. dokonči vypsání vyhodnocení v terminalpresenter
+.java
+10.9.
         3) dodělej zobrazení správných odpovědí a vyhodnocení
 
 

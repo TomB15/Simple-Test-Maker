@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class QuestionsLoader {
-    private Questions questions;
+    private QuestionsList questionsList;
 
-    public QuestionsLoader(Questions questions){
-        this.questions = questions;
+    public QuestionsLoader(QuestionsList questionsList){
+        this.questionsList = questionsList;
     }
 
     public void loadQuestions(){
@@ -48,7 +48,7 @@ public class QuestionsLoader {
                     questionCorrectAnswers.add(sc.nextLine());
                     break;
                 case("-----"): //end of question
-                    questions.add(
+                    questionsList.add(
                             new Question(
                                     questionTitle,
                                     questionChoices,

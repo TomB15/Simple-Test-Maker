@@ -1,14 +1,14 @@
 package main.java.app;
 
 public class Presenter {
-    Questions questions;
+    QuestionsList questionsList;
 
-    public Presenter(Questions questions){
-        this.questions = questions;
+    public Presenter(QuestionsList questionsList){
+        this.questionsList = questionsList;
     }
 
     public void startInTerminal(){
-        TerminalPresenter terminal = new TerminalPresenter(questions);
+        TerminalPresenter terminal = new TerminalPresenter(questionsList);
         terminal.start();
     }
 }

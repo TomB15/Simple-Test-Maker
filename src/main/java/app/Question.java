@@ -10,7 +10,9 @@ public class Question {
     private List<String> correctAnswers;
     private int result;
 
-    public Question(String title, List<String> choices, List<String> correctAnswers){
+    public Question(String title,
+                    List<String> choices,
+                    List<String> correctAnswers){
         this.title = title;
         this.choices = new ArrayList<>(choices);
         this.correctAnswers = new ArrayList<>(correctAnswers);
