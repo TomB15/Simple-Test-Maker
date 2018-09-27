@@ -12,10 +12,6 @@ public class QuestionsList {
         randomQuestionsBuffer = questions;
     }
 
-    public LinkedList<Question> getQuestions(){
-        return questions;
-    }
-
     public Question getRandomQuestionFromBuffer(){
         Random random = new Random();
         int questionsSize = randomQuestionsBuffer.size();
@@ -30,9 +26,5 @@ public class QuestionsList {
         randomQuestionsBuffer.remove(i);
 
         return q;
-    }
-
-    public void restartRandomQuestionsBuffer(){
-        randomQuestionsBuffer = questions;
     }
 }

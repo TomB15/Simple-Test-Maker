@@ -1,7 +1,5 @@
 package main.java.app;
 
-import java.util.LinkedList;
-
 public class App {
     QuestionsList questionsList = new QuestionsList();
     QuestionsLoader questionsLoader;
@@ -20,13 +18,5 @@ public class App {
 
     private void start(){
         presenter.startInTerminal();
-    }
-
-    private void test(){
-        LinkedList<Question> qs = questionsList.getQuestions();
-
-        for(Question q : qs){
-            System.out.println(q.getTitle());
-        }
     }
 }

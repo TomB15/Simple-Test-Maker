@@ -8,7 +8,6 @@ public class Question {
     private String title;
     private List<String> choices;
     private List<String> correctAnswers;
-    private int result;
 
     public Question(String title,
                     List<String> choices,
@@ -28,13 +27,5 @@ public class Question {
 
     public List<String> getCorrectAnswers() {
         return correctAnswers;
-    }
-
-    public int getResult() {
-        return result;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
     }
 }

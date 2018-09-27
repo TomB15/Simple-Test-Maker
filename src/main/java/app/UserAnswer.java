@@ -1,13 +1,12 @@
 package main.java.app;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserAnswer {
 
     private String questionTitle;
-    private List<String> correctAnswers = new ArrayList<>();
-    private List<String> answersOfUser = new ArrayList<>();
+    private List<String> correctAnswers;
+    private List<String> answersOfUser;
     private boolean answerIsCorrect;
 
     public UserAnswer(String questionTitle,

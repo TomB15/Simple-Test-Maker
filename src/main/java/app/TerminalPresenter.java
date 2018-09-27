@@ -5,7 +5,7 @@ import java.util.*;
 public class TerminalPresenter {
     private QuestionsList questionsList;
     private int currentQuestionNo = 0;
-    private List<String[]> answersOfUser = new ArrayList<>();
+    private int numberOfQuestions = 3;
     UserAnswersList userAnswersList = new UserAnswersList();
 
     public TerminalPresenter(QuestionsList questionsList){
@@ -20,17 +20,17 @@ public class TerminalPresenter {
                 "You will be asked 10 questions and after each session you will be able to revise your answers.\n" +
                 "To finish entering your answers press ENTER twice.");
 
-
         startSession();
 
         System.out.println("\n 1 - exclude past questions \n 2 - include past questions");
-        //todo dokonči tuto funkcionalitu
     }
 
     private void startSession(){
         currentQuestionNo = 1;
 
-        while(currentQuestionNo <= 3){
+        System.out.println("\n>>>>>>>>>>>>>>>>> NEW TEST <<<<<<<<<<<<<<<<< ");
+
+        while(currentQuestionNo <= numberOfQuestions){
             Question question = questionsList.getRandomQuestionFromBuffer();
 
             if(Objects.isNull(question)){
@@ -40,23 +40,29 @@ public class TerminalPresenter {
             printQuestion(question);
 
             List<String> answers = new ArrayList<>(loadUserAnswers());
-            Scanner sc = new Scanner(System.in);
 
             printCorrectAnswers(question);
 
             boolean answerIsCorrect = wasTheAnswerCorrect();
 
-            //todo přidej všechno do useranswer a useranserslist
+            UserAnswer userAnswer = new UserAnswer(
+                    question.getTitle(),
+                    question.getCorrectAnswers(),
+                    answers,
+                    answerIsCorrect
+            );
+
+            userAnswersList.add(userAnswer);
             currentQuestionNo++;
         }
 
         printResultsReview();
 
-        //todo dokonči vypsání vyhodnocení
+        startSession();
     }
 
     private void printQuestion(Question question) {
-        System.out.println("\n ----------------- Question no. " + currentQuestionNo + " -----------------");
+        System.out.println("\n----------------- Question no. " + currentQuestionNo + " -----------------");
             System.out.println (question.getTitle());
 
             for(String choice : question.getChoices()){
@@ -89,7 +95,7 @@ public class TerminalPresenter {
               enterCounter = 0;
           }
 
-          if(enterCounter == 2){
+          if(enterCounter == 1){
               break LOADING;
           }
 
@@ -132,15 +138,35 @@ public class TerminalPresenter {
     private void printResultsReview(){
         System.out.println("\n  ***********Answers review ***********");
 
+        System.out.println("* Your score is "
+                + this.userAnswersList.getNumberOfCorrectAnswers()
+                + "/" + numberOfQuestions + ".\n"
+        );
 
-        for(String[] userAnswer : answersOfUser){
-            System.out.println("\n Question: " + userAnswer[0]);
-            System.out.println("Marked as " + ( userAnswer[1].equals("y") ? "CORRECT" : "INCORRECT" ));
-            System.out.println("Your answers: " ); //todo display user's answers
+        List<UserAnswer> userAnswerList = this.userAnswersList.getUserAnswersList();
+        for(int i = 0; i < userAnswerList.size(); i++){
+            UserAnswer userAnswer = userAnswerList.get(i);
 
-            for(String answer : userAnswer){
-                System.out.println(answer);
+            System.out.println("* Question " + ( i + 1 ) + ": " + userAnswer.getQuestionTitle());
+            System.out.println("* Correct answers: ");
+            for(String correctAnswer : userAnswer.getCorrectAnswers()) {
+                System.out.println("\t\t\t\t\t- " + correctAnswer);
             }
+            System.out.println("* Your answers: ");
+            for (String answerOfUser : userAnswer.getAnswersOfUser()) {
+                System.out.println("\t\t\t\t\t- " + answerOfUser);
+            }
+
+            if( (i+1) < userAnswerList.size() ) {
+                System.out.println("---------- Press ENTER to review another question" +
+                        ". " +
+                        "----------");
+                Scanner sc = new Scanner(System.in);
+                String line = sc.nextLine();
+                TerminalPresenter.checkIfTimeToExit(line);
+            }
+
+
         }
     }
 
